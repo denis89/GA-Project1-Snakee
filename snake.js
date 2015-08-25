@@ -19,6 +19,7 @@ var y = 20;
 var b = 20;
 var rRight;
 var rDown;
+var wall = [405,10];
 //var array2dim= [][];
 
 // Function of the buttons.
@@ -40,35 +41,22 @@ function button (){
       console.log("left");
       moveLeft();
       checkIfEatenL();
+     // $("#left").css('//color', 'green');
 console.log(moveLeft());
     } else if (e.which == "39") {
       console.log("right");
      //setTimeout(moveRight(),500);
       //stopDown();
       //reRight();
-      moveRight();
+     moveRight();
       checkIfEatenR(); 
+     // wallR();
       console.log(moveRight());
     } else if (e.which == "38") {
       console.log("up");
       moveUp();
       checkIfEatenU();
-      //b = b + 14;
-      //if (b > 249) {
-      //  $("#score").html("Score: 100");
-      //   paintFood(300,10,"blue");
-      //if (b>325){
-      //   $("#score").html("Score: 200");
-      //   paintFood(350,10,"blue");}
-      //}
-      //console.log(b);
-      //}
-      //else if (e.which =="32") {
-      //console.log("pause");
-      //}
-      //else if (e.which =="10") {
-      //console.log("play!");
-      //moveRightup();
+ 
     }
     
     });
@@ -147,8 +135,9 @@ function moveDown(){
      };
 
 function reRight(){
-   rRight = setInterval(moveRight,100);
+   rRight = setInterval(moveRight,10);
 }
+//reRight();
 
 function stopRight(){
    clearInterval(rRight);
@@ -162,7 +151,7 @@ function moveRight(){
 paintSnake(x-10,y-10,"#9c9");
 paintSnake(x,y-10,"black");
 
-  x = x +10;
+  x = x + 10;
   var returnArr = [x-5,y-10];
   return returnArr.toString();
 }
@@ -188,7 +177,7 @@ function checkIfEatenR() {
   if ( moveRight() == paintFood(235,10) ){
   console.log("Food updated.")
    updateFood();
-   console.log("Next food.")
+   console.log("Next food.");
    nextFood();
   }
 };
@@ -232,6 +221,13 @@ function nextFood(){
 
 };
 //nextFood();
+//var com = moveRight() == wall.toString();
+function wallR(){
+if ( com ){
+  alert("Game Over");
+
+  };
+};
 
 
 
@@ -239,8 +235,22 @@ function nextFood(){
 
 //// End: Directions ////
 
-
-
+     //b = b + 14;
+      //if (b > 249) {
+      //  $("#score").html("Score: 100");
+      //   paintFood(300,10,"blue");
+      //if (b>325){
+      //   $("#score").html("Score: 200");
+      //   paintFood(350,10,"blue");}
+      //}
+      //console.log(b);
+      //}
+      //else if (e.which =="32") {
+      //console.log("pause");
+      //}
+      //else if (e.which =="10") {
+      //console.log("play!");
+      //moveRightup();
 
 //if( b > paintFood(249,10,"blue")){
 //  alert("Game Over");
